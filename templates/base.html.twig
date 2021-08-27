@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Travel{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <link rel="stylesheet" href="{{ asset("font-awesome-4.7.0/css/font-awesome.css") }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset("css/datepicker.css") }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset("slick/slick.css") }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset("slick/slick-theme.css") }}"/>
+       <link rel="stylesheet"  href="{{ asset("css/templatemo-style.css") }}"/>
+
+
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+        {# la fonction twig asset() permet d'accéder au dossier "public" #}
+        {% block stylesheets %}{% endblock %}
+
+        
+    </head>
+
+
+
+    <body>
+
+    <div class="tm-main-content" id="top">
+        <div class="tm-top-bar-bg"></div>
+        <div class="tm-top-bar" id="tm-top-bar">
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg narbar-light">
+                        <a class="navbar-brand mr-auto" href="#">
+                            <img src={{ asset("images/logo.png")}} alt="">
+                            Journey
+                        </a>
+                        <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ path('nicole') }}">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('vols') }}">vols</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('hotels') }}" >hotels</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('locations') }}">locations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('formules') }}">formules</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('contact') }}">contact</a>
+                                </li>
+                                <li class="nav-item">
+
+                                            {% if not app.user %}
+
+                                    {#  <a class="nav-link" href="{{ path('pageName') }}">Page</a>
+    <div class="tm-main-content" id="top">
+        <div class="tm-top-bar-bg"></div>
+        <div class="tm-top-bar" id="tm-top-bar">
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg narbar-light">
+                        <a class="navbar-brand mr-auto" href="#">
+                            <img src={{ asset("images/logo.png")}} alt="">
+                            Journey
+                        </a>
+                        <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('vols') }}">vols</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('hotels') }}" >hotels</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('locations') }}">locations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('formules') }}">formules</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path ('contact') }}">contact</a>
+                                </li>
+                                <li class="nav-item">
+
+                                            {% if not app.user %}
+
+                                    {#  <a class="nav-link" href="{{ path('pageName') }}">Page</a>
+                       la fonction twig path() permet d'appeler une route
+                            2 arguments :
+                            1e (obligatoire) : c'est le name de la route
+                            2e (facultatif) : tableau (on peut passer un paramètre comme par exemple un id)
+
+                            tableau en twig:   {"key" : "value"}
+                                    #}
+                                    <a class="nav-link" href="{{ path('registration') }}">s'enregister</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('login') }}"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                            </svg></span></a>
+                                </li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div><!--row -->
+            </div> <!-- container -->
+        </div><!-- .tm-top-bar -->
+
+    <div class="container">
+        {% block body %}
+
+        {% endblock %}
+
+    </div>
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+
+
+    <!-- load JS files -->
+    <!--script src="js/hide.js"></script-->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.min.js"></script-->
+    <!--script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script-->
+
+
+
+
+
+    <!--script src="js/jquery-1.11.3.min.js"></script-->             <!-- jQuery (https://jquery.com/download/) -->
+    <!--script src="js/popper.min.js"></script-->                    <!-- https://popper.js.org/ -->
+    <!--script src="js/bootstrap.min.js"></script-->                 <!-- https://getbootstrap.com/ -->
+    <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
+    <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+    <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
+    <!--script src="js/jquery.scrollTo.min.js"></script-->           <!-- https://github.com/flesler/jquery.scrollTo -->
+
+
+    <script>
+
+        function initElement(){
+
+            $("#nav-hotels").hide();
+            $("#nav-locations").hide();
+            $("#nav-formules").hide();
+
+        }
+        $(document).ready(initElement);
+
+        function vol(){
+
+            $("#nav-vols").show();
+            $("#nav-hotels").hide();
+            $("#nav-locations").hide();
+            $("#nav-formules").hide();
+        }
+        function hotel(){
+
+            $("#nav-vols").hide();
+            $("#nav-hotels").show();
+            $("#nav-locations").hide();
+            $("#nav-formules").hide();
+        }
+        function locations(){
+
+            $("#nav-vols").hide();
+            $("#nav-hotels").hide();
+            $("#nav-locations").show();
+            $("#nav-formules").hide();
+        }
+        function formules(){
+
+            $("#nav-vols").hide();
+            $("#nav-hotels").hide();
+            $("#nav-locations").hide();
+            $("#nav-formules").show();
+        }
+
+    </script>
+
+        <script>
+            /* Google Maps
+            ------------------------------------------------*/
+            var map = '';
+            var center;
+
+            function initialize() {
+                var mapOptions = {
+                    zoom: 16,
+                    center: new google.maps.LatLng(37.769725, -122.462154),
+                    scrollwheel: false
+                };
+
+                map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
+
+                google.maps.event.addDomListener(map, 'idle', function() {
+                    calculateCenter();
+                });
+
+                google.maps.event.addDomListener(window, 'resize', function() {
+                    map.setCenter(center);
+                });
+            }
+
+            function calculateCenter() {
+                center = map.getCenter();
+            }
+
+            function loadGoogleMap(){
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' + 'callback=initialize';
+                document.body.appendChild(script);
+            }
+
+            /* DOM is ready
+            ------------------------------------------------*/
+            $(function(){
+
+                // Change top navbar on scroll
+                $(window).on("scroll", function() {
+                    if($(window).scrollTop() > 100) {
+                        $(".tm-top-bar").addClass("active");
+                    } else {
+                        $(".tm-top-bar").removeClass("active");
+                    }
+                });
+
+                // Smooth scroll to search form
+                $('.tm-down-arrow-link').click(function(){
+                    $.scrollTo('#tm-section-search', 300, {easing:'linear'});
+                });
+
+                // Date Picker in Search form
+                var pickerCheckIn = datepicker('#inputCheckIn');
+                var pickerCheckOut = datepicker('#inputCheckOut');
+
+                // Update nav links on scroll
+                $('#tm-top-bar').singlePageNav({
+                    currentClass:'active',
+                    offset: 60
+                });
+
+                // Close navbar after clicked
+                $('.nav-link').click(function(){
+                    $('#mainNav').removeClass('show');
+                });
+
+                // Slick Carousel
+                $('.tm-slideshow').slick({
+                    infinite: true,
+                    arrows: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+
+                loadGoogleMap();                                       // Google Map
+                $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
+            });
+
+        </script>
+    </div>
+    </body>
+
+
+
+</html>

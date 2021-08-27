@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+ {{ parent() }}Hotel Ajouter
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-md-6 mx-auto">
+        {{ form_start(formHotel) }} 
+
+                        
+
+            {{ form_row(formHotel.name, {
+                "attr" : {
+                    "placeholder" : "saisir le titre"
+                    } 
+                }) 
+            }}
+
+            {{ form_row(formHotel.description, {
+                "attr" : {
+                    "placeholder" : "saisir la description"
+                    } 
+                }) 
+            }}
+
+            {{ form_row(formHotel.adress, {
+                "attr" : {
+                    "placeholder" : "saisir l'adresse"
+                    } 
+                }) 
+            }}
+
+            {{ form_row(formHotel.ville, {
+                "attr" : {
+                    "placeholder" : "saisir l'adresse"
+                    } 
+                }) 
+            }}
+
+
+            
+            <div class="row">
+
+                {{ form_label(formHotel.prix) }}
+
+                <div class="col-md-6">
+
+                    {{ form_widget(formHotel.prix) }}
+
+                </div>
+
+                <div class="col-md-6">
+                    {{ form_errors(formHotel.prix) }}
+                </div>
+
+
+
+
+                {{ form_label(formHotel.prix_enfant) }}
+
+                <div class="col-md-6">
+
+                    {{ form_widget(formHotel.prix_enfant) }}
+
+                </div>
+
+                <div class="col-md-6">
+                    {{ form_errors(formHotel.prix_enfant) }}
+                </div>
+
+
+            </div>
+
+            {{ form_row(formHotel.image, {
+                "attr" : {
+                    "onChange" : "loadFile(event)"
+                    } 
+                }) 
+            }}
+
+            <div class="row justify-content-center">
+            
+                <img id="image" style='width:300px'>
+            
+            </div>
+
+            {{ form_row(formHotel.image1, {
+                "attr" : {
+                    "onChange" : "loadFile1(event)"
+                    } 
+                }) 
+            }}
+
+            <div class="row justify-content-center">
+            
+                <img id="image1" style='width:300px'>
+            
+            </div>
+
+            {{ form_row(formHotel.image2, {
+                "attr" : {
+                    "onChange" : "loadFile2(event)"
+                    } 
+                }) 
+            }}
+
+            <div class="row justify-content-center">
+            
+                <img id="image2" style='width:300px'>
+            
+            </div>
+
+            
+
+
+
+            <input type="submit" value="Ajouter" class="btn btn-dark text-white col-md-12 mt-3">
+
+        {{ form_end(formHotel) }}
+    </div>
+
+        <script>
+    let loadFile = function(event)
+{
+    let image = document.getElementById('image');
+
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
+let loadFile1 = function(event)
+{
+    let image1 = document.getElementById('image1');
+
+    image1.src = URL.createObjectURL(event.target.files[0]);
+}
+
+let loadFile2 = function(event)
+{
+    let image2 = document.getElementById('image2');
+
+    image2.src = URL.createObjectURL(event.target.files[0]);
+}
+    
+    </script>   
+    
+
+{% endblock %}

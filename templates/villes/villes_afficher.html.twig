@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Back Office | Gestion des Villes{% endblock %}
+
+
+
+
+{% block h1 %}Gestion des villes{% endblock %}
+
+{% block body %}
+
+    {# Notification #}
+    {# app est une variable d'environnement #}
+    {% for notification in app.flashes('success') %}
+        <div class="alert alert-success col-md-6 mx-auto text-center">{{ notification }}</div>
+    {% endfor %}
+
+
+    <div class="row justify-content-end">
+        <a class="btn btn-success col-md-2" href="{{ path('ville_ajouter') }}">Ajouter une ville</a>
+    </div>
+
+    {% if villes is not empty %} 
+
+       <table class="table table-hover table-striped text-center mt-3">
+
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Pays</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                {% for ville in villes %}
+                {# produits c'est le tableau qu'on récupère du controller 
+                Il contient tous les produits (objets) de la table Produit 
+                On va boucler chaque objet
+                pour appeler une propriété de l'objet la syntaxe est 
+                objet.propriété
+                #}
+                    
+                    <tr class="align-middle">
+
+                        <td>{{ ville.id }}</td>
+
+                        <td>{{ ville.name }}</td>
+
+                        <td>{{ ville.pays.name }}</td>
+
+                        <td>
+                            <a href="{{ path("ville_supprimer", {"id":ville.id} ) }}" onclick="return confirm('Confirmez-vous la suppression de l'hotel?')">
+                                <img src="{{ asset('images/delete.png') }}" alt="">
+                            </a>
+                        </td>
+
+
+                    
+                    
+                    
+                    
+                    </tr>
+
+
+                {% endfor %}
+            
+            
+            </tbody>
+       
+       
+       </table>
+
+
+    {% else %}{# si produits est vide #}
+
+        <h4 class="text-center text-danger fst-italic mt-3">Il n'y a pas de produits pour le moment</h4>
+
+    {% endif %}
+
+
+       
+{% endblock %}
+

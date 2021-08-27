@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+ {{ parent() }}Pays Ajouter
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-md-6 mx-auto">
+        {{ form_start(formPays) }} 
+
+                        
+
+            {{ form_row(formPays.name, {
+                "attr" : {
+                    "placeholder" : "saisir le nom"
+                    } 
+                }) 
+            }}
+
+            <input type="submit" value="Ajouter" class="btn btn-dark text-white col-md-12 mt-3">
+
+        {{ form_end(formPays) }}
+    </div> 
+
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'panelAdmin.html.twig' %}
+
+{% block title %}{{parent()}}vol{% endblock %}
+
+{% block body %}
+
+    <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
+
+    <div class="row justify-content-end">
+        <a class="btn btn-info col-md-2" href="{{ 'vol' }}">Retour</a>
+    </div>
+
+
+
+
+    
+    <div class="col-md-6 mx-auto">
+        {{ form_start(volForm) }} 
+
+
+        <div class="row">
+
+            {{ form_label(volForm.prix) }}
+
+            <div class="col-md-6">
+
+                {{ form_widget(volForm.prix) }}
+
+            </div>
+
+            <div class="col-md-6">
+                {{ form_errors(volForm.prix) }}
+            </div>
+
+
+        </div>
+
+        {#
+        form_row : tout
+        form_widget : input
+        form_error : message
+        form_label : label
+
+        #}
+
+
+        {{ form_row(volForm.numero, {
+            "attr" : {
+                "placeholder" : "saisir le numero"
+            }
+        })
+        }}
+
+        {{ form_row(volForm.nomCompagny, {
+            "attr" : {
+                "placeholder" : "saisir le nom de la compagnie"
+            }
+        })
+        }}
+        {{ form_row(volForm.dateDepart ,  {
+            "attr" : {
+                "placeholder" : "saisir la date de depart"
+            }
+        })
+        }}
+        {{ form_row(volForm.dateArrivee, {
+            "attr" : {
+                "placeholder" : "saisir la date d'arrivée"
+            }
+        })
+        }}
+        {{ form_row(volForm.heureDepart, {
+            "attr" : {
+                "placeholder" : "saisir l'heure de départ"
+            }
+        })
+        }}
+        {{ form_row(volForm.heureArrivee, {
+            "attr" : {
+                "placeholder" : "saisir lèheure d'arrivée"
+            }
+        })
+        }}
+        {{ form_row(volForm.Depart, {
+            "attr" : {
+                "placeholder" : "saisir la ville de depart"
+            }
+        })
+        }}
+         {{ form_row(volForm.Arrivee, {
+            "attr" : {
+                "placeholder" : "saisir la ville d'arivée"
+            }
+        })
+        }}
+        {#
+        php :   ["key" => "value"]
+        twig:   {"key" : "value"}
+        #}
+        
+        
+
+
+        <input type="submit" value="Ajouter" class="btn btn-dark text-white col-md-12 mt-3">
+
+        {{ form_end(volForm) }} {# la fonction form_end permet de terminer le formulaire: </form> #}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
+    <script>
+        $(function(){
+            $('.select2').select2()
+
+        })
+    </script>
+
+{% endblock %}
+

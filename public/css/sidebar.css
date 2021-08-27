@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+}
+
+body{
+    font-family: source sans pro;
+}
+
+#sidebar{
+    position: absolute;
+    width: 30%;
+    height: 95%;
+     left: 120vw; 
+    transition: .4s;
+    top: 16%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    padding: 15px;
+    overflow: visible;
+
+    
+}
+
+#sidebar.active{
+    left: 70vw;
+}
+
+.sidecard{
+    border: solid 1px #000;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}
+
+
+.close{
+    position: absolute;
+    top: 10px; 
+    border: solid 1px;
+    background-color: black;
+}
+
+.close :hover{
+    cursor: pointer;
+}
+
+
+.h3-title{
+    margin-top: 30px;
+    border-top: solid .5px rgba(238, 231, 231, 0.11);
+    padding-top: 15px;
+}
+
+.sidecard ul {
+    border-bottom: solid 1px ;
+}
+
+.sidecard ul li {
+    margin-bottom: 15px;
+}
+
+.p-texte{
+    padding: 15px;
+    border-bottom: solid .5px rgba(0, 0, 0, 0.281) ;
+    
+}
+
+
+.div-continuer{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.btn-continuer{
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.toggle-button{
+    border: none;
+}
+
+
+
+
+

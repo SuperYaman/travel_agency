@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Back Office | Modifier une voiture
+
+{% endblock %}
+
+{% block h1 %} Modifier une voiture {% endblock %}
+
+{% block body %}
+    {{ form_start(formVoiture) }}
+
+    {{ form_row(formVoiture.modele) }}
+    {{ form_row(formVoiture.prix) }}
+    {{ form_row(formVoiture.villeDepart) }}
+    {{ form_row(formVoiture.date) }}
+    {{ form_row(formVoiture.villeArrivee) }}
+    {{ form_row(formVoiture.dateRetour) }}
+    {{ form_row(formVoiture.imageModif, {
+        "attr" : {
+            "onChange" : "loadFile(event)"
+        }
+    })
+    }}
+    <div class="row justify-content-center">
+
+        <img id="image" style='width:300px'>
+
+    </div>
+
+    {{ form_row(formVoiture.imageModif1, {
+        "attr" : {
+            "onChange" : "loadFile1(event)"
+        }
+    })
+    }}
+    <div class="row justify-content-center">
+
+        <img id="image1" style='width:300px'>
+
+    </div>
+
+    {{ form_row(formVoiture.imageModif2, {
+        "attr" : {
+            "onChange" : "loadFile2(event)"
+        }
+    })
+    }}
+    <div class="row justify-content-center">
+
+        <img id="image2" style='width:300px'>
+
+    </div>
+    {{ form_end(formVoiture) }}
+
+    <script>
+        let loadFile = function(event)
+        {
+            let image = document.getElementById('image');
+
+            image.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        let loadFile1 = function(event)
+        {
+            let image1 = document.getElementById('image1');
+
+            image1.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        let loadFile2 = function(event)
+        {
+            let image2 = document.getElementById('image2');
+
+            image2.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+    </script>
+{% endblock %}

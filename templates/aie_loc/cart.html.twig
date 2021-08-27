@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}Panier{% endblock %}
+
+{% block h1 %} Votre Panier {% endblock %}
+
+{% block body %}
+
+    {% if panier is not empty %}
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Date Depart</th>
+                <th scope="col">Date Retour</th>
+                <th scope="col">Total</th>
+                <th scope="col"><button class="btn btn-warning">Annuler</button></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lignePanier in panier %}
+        <tr class="text-center">
+            <td>{{ lignePanier.voiture.id }}</td>
+            <td>{{ lignePanier.voiture.modele }}</td>
+            <td>{{ lignePanier.voiture.prix }}</td>
+            <td>
+                <img src="{{ asset('images/imagesUpload/') }}{{ lignePanier.voiture.image }}" style="width:80px" alt="">
+            </td>
+            <td>{{ lignePanier.voiture.date|date("d/m/Y") }}</td>
+            <td>{{ lignePanier.voiture.dateRetour|date("d/m/Y") }}</td>
+            <td>{{ lignePanier.voiture.prix * lignePanier. }}</td>
+        </tr>
+        </tbody>
+    </table>

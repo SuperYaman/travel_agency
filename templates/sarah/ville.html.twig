@@ -1,0 +1,52 @@
+{% extends 'panelAdmin.html.twig' %}
+
+{% block title %}{{parent()}}ville{% endblock %}
+
+{% block body %}
+
+    <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
+
+    <div class="row justify-content-end">
+        <a class="btn btn-info col-md-2" href="{{ 'ville' }}">Retour</a>
+    </div>
+
+
+
+
+    
+    <div class="col-md-6 mx-auto">
+        {{ form_start(villeForm) }} 
+           
+
+        <div class="row">
+
+            {{ form_label(villeForm.nom) }}
+
+            <div class="col-md-6">
+            
+
+
+               
+        {#
+        php :   ["key" => "value"]
+        twig:   {"key" : "value"}
+        #}
+        
+        
+
+
+        <input type="submit" value="Ajouter" class="btn btn-dark text-white col-md-12 mt-3">
+
+        {{ form_end(villeForm) }} {# la fonction form_end permet de terminer le formulaire: </form> #}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
+    <script>
+        $(function(){
+            $('.select2').select2()
+
+        })
+    </script>
+
+{% endblock %}
+

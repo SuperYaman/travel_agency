@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section class="p-5 tm-container-outer tm-bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
+                    <h2 class="text-uppercase mb-4">Reservez votre <strong>vol</strong> en quelques click</h2>
+                    <p class="mb-4">Nullam auctor, sapien sit amet lacinia euismod, lorem magna lobortis massa, in tincidunt mi metus quis lectus. Duis nec lobortis velit. Vivamus id magna vulputate, tempor ante eget, tempus augue. Maecenas ultricies neque magna.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 4 -->
+    {% if vols is not empty %}
+        {% for vol in vols %}
+            <div class="tab-pane fade show active" id="4a">
+                <!-- Current Active Tab WITH "show active" classes in DIV tag -->
+                <div class="tm-recommended-place-wrap">
+                    <div class="tm-recommended-place">
+                        <img src="{{ asset('images/airplane-icon-png-2492.png') }}" alt="Image" class="img-fluid tm-recommended-img card-img-top card">
+                        <div class="tm-recommended-description-box">
+
+                            <p class="tm-text-highlight">{{vol.villeDepart.name}}</p>
+                            <p class="tm-text-gray" style="display:flex"> {{vol.heureDepart | date('H:i')}}
+                                {{vol.heureArrivee | date('H:i')}}</p>
+                            <p class="tm-text-gray" style="display:flex"> {{vol.villeDepart.name}}
+                                {{vol.villeArrivee.name}}</p>
+                        </div>
+                        <a href="" class="tm-recommended-price-box">
+                            <p class="tm-recommended-price">{{vol.prix}} €</p>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if volsp is not empty %}
+        {% for vol in volsp %}
+            <div class="tab-pane fade show active" id="4a">
+                <!-- Current Active Tab WITH "show active" classes in DIV tag -->
+                <div class="tm-recommended-place-wrap">
+                    <div class="tm-recommended-place">
+                        <img src="{{ asset('images/airplane-icon-png-2492.png') }}" alt="Image" class="img-fluid tm-recommended-img card-img-top card">
+                        <div class="tm-recommended-description-box">
+
+                            <p class="tm-text-highlight">{{vol.villeDepart.name}}</p>
+                            <p class="tm-text-gray" style="display:flex"> {{vol.heureDepart | date('H:i')}}
+                                {{vol.heureArrivee | date('H:i')}}</p>
+                            <p class="tm-text-gray" style="display:flex"> {{vol.villeDepart.name}}
+                                {{vol.villeArrivee.name}}</p>
+                        </div>
+                        <a href="" class="tm-recommended-price-box">
+                            <p class="tm-recommended-price">{{vol.prix}} €</p>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if volsa is not empty %}
+        {% for vol in volsa %}
+            <div class="tab-pane fade show active" id="4a">
+                <!-- Current Active Tab WITH "show active" classes in DIV tag -->
+                <div class="tm-recommended-place-wrap">
+                    <div class="tm-recommended-place">
+                        <img src="{{ asset('images/airplane-icon-png-2492.png') }}" alt="Image" class="img-fluid tm-recommended-img card-img-top card">
+                        <div class="tm-recommended-description-box">
+
+                            <p class="tm-text-highlight">{{vol.villeDepart.name}}</p>
+                            <p class="tm-text-gray" style="display:flex"> {{vol.heureDepart | date('H:i')}}
+                                {{vol.heureArrivee | date('H:i')}}</p>
+                            <p class="tm-text-gray" style="display:flex"> {{vol.villeDepart.name}}
+                                {{vol.villeArrivee.name}}</p>
+                        </div>
+                        <a href="" class="tm-recommended-price-box">
+                            <p class="tm-recommended-price">{{vol.prix}} €</p>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Tab-pane -->
+
+{% endblock %}
+
+
+

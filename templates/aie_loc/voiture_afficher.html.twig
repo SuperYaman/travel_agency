@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Back Office | Gestion des voitures{% endblock %}
+
+{% block h1 %}Gestion des voitures{% endblock %}
+
+{% block body %}
+
+
+    {# Notification #}
+
+
+    <div class="row justify-content-end">
+        <a class="btn btn-success col-md-2" href="{{ path('voiture_ajouter') }}">Ajouter une voiture</a>
+    </div>
+
+    {% if voitures is not empty %}
+
+        <table class="table table-dark table-hover table-striped text-center mt-3">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modele</th>
+                <th>Prix/jour (€)</th>
+                <th>Photo</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Date depart</th>
+                <th>Date Retour</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            {% for voiture in voitures %}
+
+                <tr class="align-middle">
+
+                    <td>{{ voiture.id }}</td>
+                    <td>{{ voiture.modele }}</td>
+                    <td>{{ voiture.prix }}</td>
+                    <td>
+                        <img src="{{ asset('images/imagesUpload/' ~ voiture.image ) }}" style="width:80px" alt="">
+                    </td>
+                    <td>{{ voiture.villeDepart.name }}</td>
+                    <td>{{ voiture.villeDepart.pays.name }}</td>
+                    <td>{{ voiture.villeArrivee.name }}</td>
+                    <td>{{ voiture.villeArrivee.pays.name }}</td>
+                    <td>{{ voiture.date|date("d/m/Y") }}</td>
+                    <td>{{ voiture.dateRetour|date("d/m/Y") }}</td>
+                    <td>
+                        <a href="{{ path('voiture_modifier', {id:voiture.id}) }}"><img src="{{ asset('images/update.png') }}" alt="">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('voiture_supprimer', {id:voiture.id}) }}"onclick="return confirm('Confirmez-vous la suppression de la voiture?')"><img src="{{ asset('images/delete.png') }}" alt="">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <h4 class="text-center text-danger fst-italic mt-3">Pas de voitures dispo</h4>
+
+    {% endif %}
+
+{% endblock %}

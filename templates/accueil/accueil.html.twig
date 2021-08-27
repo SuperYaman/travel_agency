@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Accueil {% endblock %}
+
+{# La fonction twig parent() permet de récupérer la valeur situé dans le block title de la base.html.#}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css')}}">
+{% endblock %}
+
+{% block h1 %}Bienvenue sur Travel, la plateforme pour s'envoyer en l'air aux 4 coins du monde{% endblock %}
+
+{% block body %}
+
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil nostrum consectetur possimus itaque. Laudantium, quasi. Deserunt, natus dolorem at in vitae, quod nobis amet placeat eveniet recusandae quo enim! Necessitatibus laborum labore, exercitationem consequatur accusamus ab, quaerat quos eveniet quidem quisquam minima? Reiciendis dicta quo minus. Cumque magni debitis sint recusandae aperiam illo earum dolores cupiditate architecto ducimus ipsa, praesentium pariatur eius, repellat corrupti commodi optio accusamus! Molestias, asperiores accusamus similique ipsum ullam alias voluptatibus cum officia iusto minus laborum distinctio perferendis aut aliquam dolores aliquid, iste omnis quia placeat recusandae? Ullam tempore illo repudiandae eveniet quae eius perspiciatis consectetur?</p>
+
+{% endblock %}

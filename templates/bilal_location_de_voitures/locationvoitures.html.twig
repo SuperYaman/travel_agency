@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} Location de Voitures{% endblock %}
+
+{% block body %}
+
+<div class="row justify-content-center mb-5">
+
+        
+        {% for notification in app.flashes('success') %}
+            <div class="alert alert-success col-md-6 mx-auto text-center">{{ notification }}</div>
+        {% endfor %}
+        <div class="col-md-6 ">
+
+
+            {{ form_start(formVoitures) }}
+            
+          
+
+             <div class="mt-2">
+                  {{ form_row(formVoitures.PriseEnCharge) }}
+            </div>
+
+             <div class="mt-2">
+                  {{ form_row(formVoitures.Date) }}
+            </div>
+
+             <div class="mt-2">
+                  {{ form_row(formVoitures.Restitution) }}
+            </div>
+
+             <div class="mt-2">
+                  {{ form_row(formVoitures.DateRetour) }}
+            </div>
+
+            <a href="{{ path ('voiture_afficher') }}" class="btn btn-primary">Rechercher</a>
+          
+
+            {{ form_end(formVoitures) }}
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,358 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="tm-page-wrap mx-auto">
+        <section class="tm-banner">
+            <div class="tm-container-outer tm-banner-bg">
+                <div class="container">
+
+                    <div class="row tm-banner-row tm-banner-row-header">
+                        <div class="col-xs-12">
+                            <div class="tm-banner-header">
+                                <h1 class="text-uppercase tm-banner-title">Partons ensemble</h1>
+                                <p class="tm-banner-subtitle">Nous vous aidons á selectionner les meilleurs prix</p>
+                            </div>
+                        </div> <!-- col-xs-12 -->
+                    </div><!-- row -->
+                    <div class="row tm-banner-row" id="tm-section-search">
+                        <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                            <div class="form-row tm-search-form-row">
+                                <div class="navbar">
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" onload="initElement()"  role="tablist">
+                                            <a class="nav-link active" id="nav-vols-tab" data-toggle="tab" href="#nav-vols" role="tab" onclick="vol()" aria-controls="nav-vols" aria-selected="true">vols</a>
+                                            <a class="nav-link" id="nav-hotels-tab" data-toggle="tab" href="#nav-hotels" role="tab" onclick="hotel()" aria-controls="nav-hotels" aria-selected="false">hotels</a>
+                                            <a class="nav-link" id="nav-locations-tab" data-toggle="tab" href="#nav-locations" role="tab" onclick="locations()" aria-controls="nav-locations" aria-selected="false">locations de voitures</a>
+                                            <a class="nav-link" id="nav-formules-tab" data-toggle="tab" href="#nav-formules" role="tab" onclick="formules()" aria-controls="nav-formules" aria-selected="false">formules</a>
+                                        </div>
+                                    </nav>
+
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-vols" role="tabpanel" aria-labelledby="nav-vols-tab">
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                                <label for="inputCity">Choisissez votre destination</label>
+                                                <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Entrez votre destination...">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-1">
+                                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                                    <label for="inputRoom">Au départ de </label>
+                                                    <select name="room" class="form-control tm-select" id="inputRoom">
+                                                        <option value="1" selected>france</option>
+                                                        <option value="2">Italie</option>
+                                                        <option value="3">Gréce</option>
+                                                        <option value="4">Angleterre</option>
+                                                        <option value="5">Portugal</option>
+                                                        <option value="6">Espagne</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                                    <label for="inputAdult">A destination</label>
+                                                    <select name="adult" class="form-control tm-select" id="inputAdult">
+                                                        <option value="1" selected>france</option>
+                                                        <option value="2">Italie</option>
+                                                        <option value="3">Gréce</option>
+                                                        <option value="4">Angleterre</option>
+                                                        <option value="5">Portugal</option>
+                                                        <option value="6">Espagne</option>
+                                                    </select>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="form-row tm-search-form-row">
+
+                                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                    <label for="inputCheckIn">Date de départ</label>
+                                                    <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="jj/mm/yyyy">
+                                                </div>
+                                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                    <label for="inputCheckOut">Date d'arivée</label>
+                                                    <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="jj/mm/yyyy">
+                                                </div>
+                                                <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                                    <label for="btnSubmit">&nbsp;</label>
+                                                    <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Rechercher</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab">
+
+                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                            <label for="inputCity">Choisissez votre destination</label>
+                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Entrez votre destination...">
+                                        </div>
+                                        <div class="form-group tm-form-group tm-form-group-1">
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                                <label for="inputRoom">nombre de chambre</label>
+                                                <select name="room" class="form-control tm-select" id="inputRoom">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2 </option>
+                                                    <option value="3">3 </option>
+                                                    <option value="4">4 </option>
+                                                    <option value="5">5 </option>
+                                                    <option value="6">6 </option>
+                                                    <option value="7">7 </option>
+                                                    <option value="8">8 </option>
+                                                    <option value="9">9 </option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputAdult">Adulte</label>
+                                                <select name="adult" class="form-control tm-select" id="inputAdult">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+
+                                                <label for="inputChildren">Enfant</label>
+                                                <select name="children" class="form-control tm-select" id="inputChildren">
+                                                    <option value="0" selected>0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row tm-search-form-row">
+
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputCheckIn">Jour d'arrivée</label>
+                                                <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="jj/mm/yyyy">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputCheckOut">Jour de départ</label>
+                                                <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="jj/mm/yyyy">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                                <label for="btnSubmit">&nbsp;</label>
+                                                <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Rechercher</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-locations" role="tabpanel" aria-labelledby="nav-locations-tab">
+                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                            <label for="inputCity">Choisissez votre destination</label>
+                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination...">
+                                        </div>
+                                        <div class="form-group tm-form-group tm-form-group-1">
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                                <label for="inputRoom">lieu de retrait </label>
+                                                <select name="room" class="form-control tm-select" id="inputRoom">
+                                                    <option value="1" selected>france</option>
+                                                    <option value="2">Italie</option>
+                                                    <option value="3">Gréce</option>
+                                                    <option value="4">Angleterre</option>
+                                                    <option value="5">Portugal</option>
+                                                    <option value="6">Espagne</option>
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
+                                                <label for="inputAdult">Lieu de depot</label>
+                                                <select name="adult" class="form-control tm-select" id="inputAdult">
+                                                    <option value="1" selected>france</option>
+                                                    <option value="2">Italie</option>
+                                                    <option value="3">Gréce</option>
+                                                    <option value="4">Angleterre</option>
+                                                    <option value="5">Portugal</option>
+                                                    <option value="6">Espagne</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row tm-search-form-row">
+
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputCheckIn">Date de retrait</label>
+                                                <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="jj/mm/yyyy">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputCheckOut">Date de dépôt</label>
+                                                <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="jj/mm/yyyy">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                                <label for="btnSubmit">&nbsp;</label>
+                                                <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Rechercher</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="nav-formules" role="tabpanel" aria-labelledby="nav-formules-tab">
+                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                            <label for="inputCity">Choisissez votre destination</label>
+                                            <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Entrez votre destination...">
+                                        </div>
+                                        <div class="form-row tm-search-form-row">
+
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputCheckIn">Date de départ</label>
+                                                <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="jj/mm/yyyy">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                                <label for="inputCheckOut">Date d'arrivée</label>
+                                                <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="jj/mm/yyyy">
+                                            </div>
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                                <label for="btnSubmit">&nbsp;</label>
+                                                <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit">Rechercher</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section></div>
+    </div>
+
+
+
+
+    </div> <!-- row -->
+
+    <div class="tm-banner-overlay"></div>
+
+    </div>  <!-- .container -->
+    </div>     <!-- .tm-container-outer -->
+    </section>
+    <section class="p-5 tm-container-outer tm-bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 mx-auto tm-about-text-wrap text-center">
+                    <h2 class="text-uppercase mb-4">Louer <strong>une voiture</strong> en quelques click</h2>
+                    <p class="mb-4">Nullam auctor, sapien sit amet lacinia euismod, lorem magna lobortis massa, in tincidunt mi metus quis lectus. Duis nec lobortis velit. Vivamus id magna vulputate, tempor ante eget, tempus augue. Maecenas ultricies neque magna.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 4 -->
+    <div class="tab-pane fade show active" id="4a">
+        <!-- Current Active Tab WITH "show active" classes in DIV tag -->
+        <div class="tm-recommended-place-wrap">
+            <div class="tm-recommended-place">
+                <img src="{{ asset('images/OPEL MOKKA.jpeg') }}" alt="Image" class="img-fluid tm-recommended-img card-img-top card">
+                <div class="tm-recommended-description-box">
+                    <h3 class="tm-recommended-title">Asia Resort Hotel</h3>
+                    <p class="tm-text-highlight">Singapore</p>
+                    <p class="tm-text-gray">Sed egestas, odio nec bibendum mattis, quam odio hendrerit risus, eu varius eros lacus sit amet lectus. Donec blandit luctus dictum...</p>
+                </div>
+                <a href="" class="tm-recommended-price-box">
+                    <p class="tm-recommended-price">70$</p>
+                    <p class="tm-recommended-price-link">Par jour</p>
+                </a>
+            </div>
+
+            <div class="tm-recommended-place">
+                <img src="{{ asset('images/BMW X1.jpeg') }}" alt="Image" class="img-fluid tm-recommended-img">
+                <div class="tm-recommended-description-box">
+                    <h3 class="tm-recommended-title">Nullam eget est a nisl</h3>
+                    <p class="tm-text-highlight">Yangon, Myanmar</p>
+                    <p class="tm-text-gray">Sed egestas, odio nec bibendum mattis, quam odio hendrerit risus, eu varius eros lacus sit amet lectus. Donec blandit luctus dictum...</p>
+                </div>
+                <div id="preload-hover-img"></div>
+                <a href="" class="tm-recommended-price-box">
+                    <p class="tm-recommended-price">$450</p>
+                    <p class="tm-recommended-price-link">Par jour</p>
+                </a>
+            </div>
+
+            <div class="tm-recommended-place">
+                <img src="{{ asset('images/AUDI Q5.jpeg') }}" alt="Image" class="img-fluid tm-recommended-img">
+                <div class="tm-recommended-description-box">
+                    <h3 class="tm-recommended-title">Proin interdum ullamcorper</h3>
+                    <p class="tm-text-highlight">Bangkok, Thailand</p>
+                    <p class="tm-text-gray">Sed egestas, odio nec bibendum mattis, quam odio hendrerit risus, eu varius eros lacus sit amet lectus. Donec blandit luctus dictum...</p>
+                </div>
+                <a href="" class="tm-recommended-price-box">
+                    <p class="tm-recommended-price">$460</p>
+                    <p class="tm-recommended-price-link">Par jour</p>
+                </a>
+            </div>
+
+            <div class="tm-recommended-place">
+                <img src="{{ asset('images/peugeot 308.jpeg') }}" alt="Image" class="img-fluid tm-recommended-img">
+                <div class="tm-recommended-description-box">
+                    <h3 class="tm-recommended-title">Lorem ipsum dolor sit</h3>
+                    <p class="tm-text-highlight">Vientiane, Laos</p>
+                    <p class="tm-text-gray">Sed egestas, odio nec bibendum mattis, quam odio hendrerit risus, eu varius eros lacus sit amet lectus. Donec blandit luctus dictum...</p>
+                </div>
+                <a href="" class="tm-recommended-price-box">
+                    <p class="tm-recommended-price">$470</p>
+                    <p class="tm-recommended-price-link">Par jour</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div> <!-- tab-pane -->
+
+
+    <script>
+        function initElement(){
+            $("#nav-hotels").hide();
+            $("#nav-locations").hide();
+            $("#nav-formules").hide();
+        }
+        $(document).ready(initElement);
+        function vol(){
+            $("#nav-vols").show();
+            $("#nav-hotels").hide();
+            $("#nav-locations").hide();
+            $("#nav-formules").hide();
+        }
+        function hotel(){
+            $("#nav-vols").hide();
+            $("#nav-hotels").show();
+            $("#nav-locations").hide();
+            $("#nav-formules").hide();
+        }
+        function locations(){
+            $("#nav-vols").hide();
+            $("#nav-hotels").hide();
+            $("#nav-locations").show();
+            $("#nav-formules").hide();
+        }
+        function formules(){
+            $("#nav-vols").hide();
+            $("#nav-hotels").hide();
+            $("#nav-locations").hide();
+            $("#nav-formules").show();
+        }
+    </script>
+
+
+{% endblock %}

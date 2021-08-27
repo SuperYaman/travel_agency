@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+ {{ parent() }}Ville Ajouter
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-md-6 mx-auto">
+        {{ form_start(formVille) }} 
+
+                        
+
+            {{ form_row(formVille.name, {
+                "attr" : {
+                    "placeholder" : "saisir le titre"
+                    } 
+                }) 
+            }}
+
+            {{ form_row(formVille.pays, {
+                "attr" : {
+                    "placeholder" : "saisir le titre"
+                    } 
+                }) 
+            }}
+
+            <input type="submit" value="Ajouter" class="btn btn-dark text-white col-md-12 mt-3">
+
+        {{ form_end(formVille) }}
+    </div> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
+    <script>
+        $(function(){
+            $('.select2').select2()
+
+        })
+    </script>
+
+{% endblock %}
